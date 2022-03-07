@@ -1,0 +1,8 @@
+*.o
+*.a
+
+/htsim
+/htsim_dumbell_ndptunnel
+/parse_output
+
+/datacenter/htsim_*
