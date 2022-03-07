@@ -1,6 +1,10 @@
 *.o
 *.a
 
+.*.sw?
+cscope.out
+tags
+
 /htsim
 /htsim_dumbell_ndptunnel
 /parse_output
