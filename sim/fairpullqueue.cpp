@@ -155,6 +155,7 @@ FairPullQueue<PullPkt>::create_queue(const PullPkt& pkt) {
     return new_queue;
 }
 
+template class BasePullQueue<NdpPull>;
 template class FifoPullQueue<NdpPull>;
 template class FairPullQueue<NdpPull>;
 
