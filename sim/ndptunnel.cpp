@@ -206,7 +206,7 @@ void NdpTunnelSrc::processNack(const NdpNack& nack){
     if (nack.pull()) {
       _flight_size -= _mss;
       _implicit_pulls++;
-      cout << "PULL NACK" << endl;
+      // cout << "PULL NACK" << endl;
       pull_packets(nack.pullno(), nack.pacerno());
     }
 }
@@ -376,7 +376,7 @@ void NdpTunnelSrc::receivePacket(Packet& pkt)
 	bool empty = _queue.empty();
 	
 	if (pkt.size()+_qs > _maxqs){
-	  cout << "Dropping packet in EQDS queue" <<endl;
+	  // cout << "Dropping packet in EQDS queue" <<endl;
 	  pkt.free();
 	  return;
 	}
