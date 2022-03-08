@@ -2,7 +2,7 @@ OBJS=eventlist.o tcppacket.o pipe.o queue.o queue_lossless.o queue_lossless_inpu
 HDRS=network.h ndp.h queue_lossless.h queue_lossless_input.h queue_lossless_output.h compositequeue.h prioqueue.h cpqueue.h queue.h loggers.h loggertypes.h pipe.h eventlist.h config.h tcp.h dctcp.h mtcp.h sent_packets.h tcppacket.h ndppacket.h eth_pause_packet.h ndp_transfer.h compositeprioqueue.h ecnqueue.h switch.h dctcp_transfer.h ndptunnel.h ndptunnelpacket.h
 
 CC=g++ 
-CFLAGS= -Wall -g -O3
+CFLAGS= -Wall -g -O3 -std=gnu++11
 
 all:	htsim lib parse_output htsim_dumbell_ndptunnel
 
