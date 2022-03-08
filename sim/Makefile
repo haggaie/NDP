@@ -4,20 +4,20 @@ HDRS=network.h ndp.h queue_lossless.h queue_lossless_input.h queue_lossless_outp
 CC=g++ 
 CFLAGS= -Wall -g -O3 -std=gnu++11
 
-all:	htsim lib parse_output htsim_dumbell_ndptunnel
+all:	htsim libhtsim.a parse_output htsim_dumbell_ndptunnel
 
-lib:	$(OBJS) $(HDRS)
+libhtsim.a:	$(OBJS) $(HDRS)
 	ar -rvu libhtsim.a $(OBJS)
 
-parse_output: parse_output.o
+parse_output: parse_output.o libhtsim.a
 	$(CC) $(CFLAGS) parse_output.o libhtsim.a -o parse_output 
 
-htsim:	$(OBJS) main.o
-	$(CC) $(CFLAGS) $(OBJS) main.o -o htsim
+htsim:	libhtsim.a main.o
+	$(CC) $(CFLAGS) main.o libhtsim.a -o htsim
 
 clean:	
 	rm -f *.o htsim htsim_* libhtsim.a
-parse_output.o: parse_output.cpp libhtsim.a
+parse_output.o: parse_output.cpp
 config.o:	config.cpp config.h
 switch.o: 	switch.cpp switch.h
 eventlist.o:    eventlist.cpp eventlist.h config.h
